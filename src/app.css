@@ -35,7 +35,7 @@ div#basicdata {
 div.chip {
   flex: 1;
   border-radius: 10pt;
-  background-color: #172839;
+  background-color: #172859;
   padding: 15pt;
   margin-right: 20pt;
 }
@@ -84,7 +84,7 @@ div.chip_ac {
 
 p.info {
   font-family: monospace;
-  font-size: 12pt;
+  font-size: 15pt;
   font-weight: bolder;
   color: #FFFFFF;
 }
@@ -102,13 +102,15 @@ button.btn_ac {
 div.encad_btn {
   margin-top: 15px;
   display: flex;
-  background-color: #96c3f0;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 div.formulaire {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #FFFFFF;
+  border-radius: 4px;
+  padding: 10px;
 
 }

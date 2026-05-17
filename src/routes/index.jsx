@@ -1,10 +1,10 @@
 import { A } from "@solidjs/router";
 
-export default function Home() {
+export function Home() {
   return (
     <main>
       <h1>Bienvenue sur le site du Parking des Mines</h1>
-      <p>Veuillez vous identifier ou créer votre compte client</p>
+      <p>Veuillez vous identifier ou créer votre compte client.</p>
       <div id="basicdata">
         <div class="chip_ac">
           <p class="info">Première connexion :</p>
@@ -34,7 +34,7 @@ export default function Home() {
   );
 }
 
-export function Admin() {
+export  function Admin() {
   return (
     <main>
       <h1>Tableau de bord</h1>
@@ -83,5 +83,55 @@ export function Admin() {
       </For>
       </div>
     </main>
+  );
+}
+
+export default function Client() {
+  return (
+    <main>
+      <h1>Mon compte client</h1>
+      <div class="basicdata">
+        <div class="chip">
+            <p class="info"> Mes réservations actives </p>
+            <p> Durée écoulée </p>
+            <p> Cout actuel </p>
+            <div class="encad_btn">
+              <button class="btn_ac"> Générer un code de sortie </button>
+            </div>
+        </div>
+      </div>
+      
+      <div id="basicdata">
+        <div class="chip">
+          <p class="info">Réserver une place</p>
+          <div class="formulaire">
+            <div>
+              <label style="color:black"  for="Date_arrivee">Arrivée : </label>
+              <input  type="datetime-local" id="Date_arrivee" name="Date_arrivée"></input>
+            </div>
+            <div>
+              <label style="color:black" for="Date_depart">Départ : </label>
+              <input type="datetime-local" id="Date_depart" name="Date_depart"></input>
+            </div>
+          </div>
+          <div class="encad_btn"> 
+            <button class="btn_ac"> Vérifier la disponibilité </button>
+          </div>
+        </div>
+        <div class="chip">
+          <p class="info">Mon historique de réservations</p>
+          <p> tableau avec date, place, durée, montant, et lien facture</p>
+        </div>
+        <div class="chip">
+          <p class="info">Mes informations & véhicules</p>
+          <p>Email :</p>
+          <p> Véhicule enregistrés :</p>
+          <div class="encad_btn">
+            <button class="btn_ac"> Ajouter un véhicule </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
   );
 }
