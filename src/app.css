@@ -75,7 +75,7 @@ p.firstline {
 
 p.firstcol {
   flex: none;
-  width: 15%;
+  width: 19%;
   color: #8b96a1;
   font-weight: bold;
 }
@@ -83,9 +83,9 @@ p.firstcol {
 div.chip_ac {
   flex: 1;
   border-radius: 10pt;
-  background-color: #96c3f0;
+  background-color: #172859;
   padding: 15pt;
-  margin-right: 20pt;
+  margin: 20pt;
  
   
 }
