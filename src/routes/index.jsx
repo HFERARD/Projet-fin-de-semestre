@@ -14,12 +14,13 @@ export function Home() {
         </div>
         <div class="chip_ac">
           <p class="info">Déjà client :</p>
-          <div class="formulaire">
-            <div>
+          <div>
+            <div class="formulaire">
               <label style="color:black" for="identifiant">Id. : </label>
               <input  type="text" id="identifiant" name="identifiant" placeholder="à saisir"></input>
             </div>
-            <div>
+            
+            <div class="formulaire">
               <label style="color:black" for="Mot de passe">MdP : </label>
               <input type="password" id="Mdp" name="Mot de passe" placeholder="à saisir"></input>
             </div>
@@ -90,7 +91,7 @@ export default function Client() {
   return (
     <main>
       <h1>Mon compte client</h1>
-      <div class="basicdata">
+      <div id="basicdata">
         <div class="chip">
             <p class="info"> Mes réservations actives </p>
             <div id="lst_vehicule_garé_client">
@@ -125,12 +126,12 @@ export default function Client() {
       <div id="basicdata">
         <div class="chip">
           <p class="info">Réserver une place</p>
-          <div class="formulaire">
-            <div>
+          <div >
+            <div class="formulaire">
               <label style="color:black"  for="Date_arrivee">Arrivée : </label>
               <input  type="datetime-local" id="Date_arrivee" name="Date_arrivée"></input>
             </div>
-            <div>
+            <div class="formulaire">
               <label style="color:black" for="Date_depart">Départ : </label>
               <input type="datetime-local" id="Date_depart" name="Date_depart"></input>
             </div>
