@@ -1,18 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background-rgb: 214, 219, 220;
-  --foreground-rgb: 0, 0, 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-rgb: 0, 0, 0;
-    --foreground-rgb: 255, 255, 255;
-  }
+nav{
+  background-color: #031222;
 }
 
 body {
-  background: rgb(var(--background-rgb));
-  color: rgb(var(--foreground-rgb));
+  background: #0b1c2c;
+}
+
+main {
+  padding: 25px;
+  color: #8b96a1;
+}
+
+h1 {
+  font-size: 30pt;
+  font-weight: bolder;
+  color: white;
+}
+
+h2 {
+  font-size: 18pt;
+  font-weight: bolder;
+  color: white;
+}
+
+div#basicdata {
+  margin-top: 10pt;
+  display: flex;
+  width: 100%;
+}
+
+div.chip {
+  flex: 1;
+  border-radius: 10pt;
+  background-color: #172839;
+  padding: 15pt;
+  margin-right: 20pt;
+}
+
+p.data {
+  font-family: monospace;
+  font-size: 20pt;
+  font-weight: bolder;
+  color: #01c9d5;
 }
