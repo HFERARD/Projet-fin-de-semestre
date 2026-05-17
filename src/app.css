@@ -27,6 +27,7 @@ h2 {
 
 div#basicdata {
   margin-top: 10pt;
+  padding-bottom: 30pt;
   display: flex;
   width: 100%;
 }
@@ -44,6 +45,33 @@ p.data {
   font-size: 20pt;
   font-weight: bolder;
   color: #01c9d5;
+}
+
+div#liste_voitures {
+  width: 800pt;
+}
+
+div.voiture_ligne {
+  display: flex;
+  font-size: 13pt;
+}
+
+p.ligne {
+  flex: 1;
+  padding: 3pt;
+  font-family: monospace;
+  color: #01c9d5;
+}
+
+p.firstline {
+  font-family: system-ui;
+  color: #8b96a1
+}
+
+p.firstcol {
+  flex: none;
+  width: 40pt;
+  color: #8b96a1;
 }
 
 div.chip_ac {
