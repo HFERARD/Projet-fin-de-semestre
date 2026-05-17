@@ -121,3 +121,10 @@ p.firstcol_little {
   color: #8b96a1;
   font-weight: bold;
 }
+
+a.ligne {
+  flex: 1;
+  padding: 3pt;
+  font-family: monospace;
+  color: #01c9d5;
+}

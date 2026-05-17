@@ -178,11 +178,11 @@ export default function Client() {
                 <p class="ligne firstline" title="Durée">Durée</p>
                 <p class="ligne firstline" title="Montant">Montant</p>
                 <p class="ligne firstline" title="immatriculation">Immatriculation</p>
-                <p class="ligne firstline" title="Facture">Facture</p>
+                <p class="ligne firstline" title="Facture">facture</p>
               </div>
               <hr/>
-              <For each={[{"Vehicule": "Peugeot 306", "immatriculation": "AB-123-CD", "Date": "2026/05/13", "Montant": "22.50 €","Durée":"2j 8h32"},
-                {"Vehicule": "Lotus Seven", "immatriculation": "EF-123-GH", "Date": "2026/05/11", "numero_place": 2, "Montant": "12.90 €", "Durée":"1j 4h21"}
+              <For each={[{"Vehicule": "Peugeot 306", "immatriculation": "AB-123-CD", "Date": "2026/05/13", "Montant": "22.50 €","Durée":"12j 8h32", "Facture":"lien/facture001.pdf"},
+                {"Vehicule": "Lotus Seven", "immatriculation": "EF-123-GH", "Date": "2026/05/11", "numero_place": 2, "Montant": "12.90 €", "Durée":"1j 4h21","Facture":"lien/facture002.pdf"}
               ]}>
                 {(voiture)=>
                 <div class="voiture_ligne">
@@ -191,7 +191,7 @@ export default function Client() {
                   <p class="ligne">{voiture["Durée"]}</p>
                   <p class="ligne">{voiture["Montant"]}</p>
                   <p class="ligne">{voiture["immatriculation"]}</p>
-                  <p class="ligne">{voiture["Facture"]}</p>
+                  <a class="ligne" href={voiture["Facture"]} target="_blank">Voir PDF</a>
                 </div>}
               </For>
               </div>
