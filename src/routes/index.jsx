@@ -34,7 +34,7 @@ export default function Home() {
   );
 }
 
-export function login() {
+export function Admin() {
   return (
     <main>
       <h1>Tableau de bord</h1>
