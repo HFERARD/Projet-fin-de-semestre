@@ -270,6 +270,7 @@ export function Client() {
         <div class="chip">
           <p class="info">Mes informations & véhicules</p>
           <p style="color:white">Email : Joseph_a_automatiser@gmail.com</p>
+          <p style="color:white">Dépenses depuis le 01/01 : XX €</p>
           <br></br>
           <p style="color:white"> Véhicule enregistrés :</p>
           <div id="lst_vehicule_client">
