@@ -70,8 +70,9 @@ p.firstline {
 
 p.firstcol {
   flex: none;
-  width: 40pt;
+  width: 15%;
   color: #8b96a1;
+  font-weight: bold;
 }
 
 div.chip_ac {
@@ -112,5 +113,11 @@ div.formulaire {
   background-color: #FFFFFF;
   border-radius: 4px;
   padding: 10px;
+}
 
+p.firstcol_little {
+  flex: none;
+  width: 50%;
+  color: #8b96a1;
+  font-weight: bold;
 }

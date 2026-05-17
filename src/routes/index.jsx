@@ -16,11 +16,11 @@ export function Home() {
           <p class="info">Déjà client :</p>
           <div class="formulaire">
             <div>
-              <label  for="identifiant">Id. : </label>
+              <label style="color:black" for="identifiant">Id. : </label>
               <input  type="text" id="identifiant" name="identifiant" placeholder="à saisir"></input>
             </div>
             <div>
-              <label for="Mot de passe">MdP : </label>
+              <label style="color:black" for="Mot de passe">MdP : </label>
               <input type="password" id="Mdp" name="Mot de passe" placeholder="à saisir"></input>
             </div>
           </div>
@@ -34,7 +34,7 @@ export function Home() {
   );
 }
 
-export  function Admin() {
+export function Admin() {
   return (
     <main>
       <h1>Tableau de bord</h1>
@@ -93,8 +93,29 @@ export default function Client() {
       <div class="basicdata">
         <div class="chip">
             <p class="info"> Mes réservations actives </p>
-            <p> Durée écoulée </p>
-            <p> Cout actuel </p>
+            <div id="lst_vehicule_garé_client">
+              <div class="voiture_ligne">
+                <p class="ligne firstline firstcol" title="Véhicule">Vehicule</p>
+                <p class="ligne firstline" title="numero_place">N° de place</p>
+                <p class="ligne firstline" title="cout_actuel">Cout Actuel</p>
+                <p class="ligne firstline" title="heure_arrivee">Date et heure d'arrivée</p>
+                <p class="ligne firstline" title="immatriculation">Immatriculation</p>
+  
+              </div>
+              <hr/>
+              <For each={[{"Véhicule": "Peugeot 306", "immatriculation": "AB-123-CD", "heure_arrivee": "2026/05/17 18:20:18", "numero_place": 40, "cout_actuel": "6.50 €"},
+                {"Véhicule": "Lotus Seven", "immatriculation": "EF-123-GH", "heure_arrivee": "2026/05/17 22:00:15", "numero_place": 2, "cout_actuel": "3.90 €"}
+              ]}>
+                {(voiture)=>
+                <div class="voiture_ligne">
+                  <p class="ligne firstcol">{voiture["Véhicule"]}</p>
+                  <p class="ligne">{voiture["numero_place"]}</p>
+                  <p class="ligne">{voiture["cout_actuel"]}</p>
+                  <p class="ligne">{voiture["heure_arrivee"]}</p>
+                  <p class="ligne">{voiture["immatriculation"]}</p>
+                </div>}
+              </For>
+              </div>
             <div class="encad_btn">
               <button class="btn_ac"> Générer un code de sortie </button>
             </div>
@@ -118,17 +139,62 @@ export default function Client() {
             <button class="btn_ac"> Vérifier la disponibilité </button>
           </div>
         </div>
-        <div class="chip">
-          <p class="info">Mon historique de réservations</p>
-          <p> tableau avec date, place, durée, montant, et lien facture</p>
-        </div>
+
         <div class="chip">
           <p class="info">Mes informations & véhicules</p>
-          <p>Email :</p>
-          <p> Véhicule enregistrés :</p>
+          <p style="color:white">Email : Joseph_a_automatiser@gmail.com</p>
+          <br></br>
+          <p style="color:white"> Véhicule enregistrés :</p>
+          <div id="lst_vehicule_client">
+              <div class="voiture_ligne">
+                <p class="ligne firstline firstcol_little" title="Véhicule">Vehicule</p>
+                <p class="ligne firstline" title="immatriculation">Immatriculation</p>
+              </div>
+              <hr/>
+              <For each={[{"Véhicule": "Peugeot 306", "immatriculation": "AB-123-CD"},
+                {"Véhicule": "Lotus Seven", "immatriculation": "EF-123-GH"}, 
+                {"Véhicule": "Fiat Panda", "immatriculation": "KP-982-TR"},
+                {"Véhicule": "Renault Alpine", "immatriculation": "JN-143-ZE"}
+              ]}>
+                {(voiture)=>
+                <div class="voiture_ligne">
+                  <p class="ligne firstcol_little">{voiture["Véhicule"]}</p>
+                  <p class="ligne">{voiture["immatriculation"]}</p>
+                </div>}
+              </For>
+              </div>
           <div class="encad_btn">
             <button class="btn_ac"> Ajouter un véhicule </button>
           </div>
+        </div>
+      </div>
+      <div class="basicdata">
+      <div class="chip">
+          <p class="info">Mon historique de réservations</p>
+           <div id="lst_facture_client">
+              <div class="voiture_ligne">
+                <p class="ligne firstline firstcol" title="Date">Date</p>
+                <p class="ligne firsline" title="Véhicule">Vehicule</p>
+                <p class="ligne firstline" title="Durée">Durée</p>
+                <p class="ligne firstline" title="Montant">Montant</p>
+                <p class="ligne firstline" title="immatriculation">Immatriculation</p>
+                <p class="ligne firstline" title="Facture">Facture</p>
+              </div>
+              <hr/>
+              <For each={[{"Vehicule": "Peugeot 306", "immatriculation": "AB-123-CD", "Date": "2026/05/13", "Montant": "22.50 €","Durée":"2j 8h32"},
+                {"Vehicule": "Lotus Seven", "immatriculation": "EF-123-GH", "Date": "2026/05/11", "numero_place": 2, "Montant": "12.90 €", "Durée":"1j 4h21"}
+              ]}>
+                {(voiture)=>
+                <div class="voiture_ligne">
+                  <p class="ligne firstcol">{voiture["Date"]}</p>
+                  <p class="ligne">{voiture["Vehicule"]}</p>
+                  <p class="ligne">{voiture["Durée"]}</p>
+                  <p class="ligne">{voiture["Montant"]}</p>
+                  <p class="ligne">{voiture["immatriculation"]}</p>
+                  <p class="ligne">{voiture["Facture"]}</p>
+                </div>}
+              </For>
+              </div>
         </div>
       </div>
     </main>
