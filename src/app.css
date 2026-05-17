@@ -45,3 +45,42 @@ p.data {
   font-weight: bolder;
   color: #01c9d5;
 }
+
+div.chip_ac {
+  flex: 1;
+  border-radius: 10pt;
+  background-color: #96c3f0;
+  padding: 15pt;
+  margin-right: 20pt;
+}
+
+p.info {
+  font-family: monospace;
+  font-size: 12pt;
+  font-weight: bolder;
+  color: #FFFFFF;
+}
+
+button.btn_ac {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.encad_btn {
+  margin-top: 15px;
+  display: flex;
+  background-color: #96c3f0;
+  align-items: center;
+  justify-content: center;
+}
+div.formulaire {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+
+}
