@@ -1,9 +1,20 @@
+import { server$ } from 'solid-start/server';
+
+
 const cars = [
     { id: 1, destination: 'New York', mileage: 1000 },
     { id: 2, destination: 'London', mileage: 2000 },
 ];
 
-export const getCars = () => cars;
+export const getCars = server$(() => cars);
+
+
+
+
+
+
+
+
 
 export const addCar = (car) => cars.push(car);
 
