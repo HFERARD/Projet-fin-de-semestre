@@ -42,7 +42,6 @@ div.chip {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 p.data {
@@ -80,14 +79,80 @@ p.firstcol {
   font-weight: bold;
 }
 
+/* Pour la carte du parking (Paul) */
+
+div#map {
+  display: grid;
+  grid-template-columns: repeat(10, 70pt);
+  margin: 10pt 0pt 10pt 0pt;
+}
+
+div.space {
+  border-radius: 10pt;
+  background-color: #172839;
+  padding: 15pt;
+  margin: 5pt;
+  width: 60pt;
+  height: 80pt;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.normal {
+  border: 1.5pt solid #20b36c;
+  color: #20b36c;
+}
+
+div.elec {
+  border: 1.5pt solid #01c9d5;
+  color: #01c9d5;
+}
+
+div.pmr {
+  border: 1.5pt solid #f10de2;
+  color: #f10de2  ;
+}
+
+div.occupied {
+  border: 1.5pt solid #f94144;
+  color: #f94144;
+  background-color: #f9414438;
+}
+
+div.green {
+  color: #20b36c;
+}
+
+div.blue {
+  color: #01c9d5;
+}
+
+div.pink {
+  color: #f10de2  ;
+}
+
+div.red {
+  color: #f94144;
+}
+
+div.legend {
+  display: flex;
+  gap: 3pt;
+  align-items: flex-start;
+  margin: 4pt;
+}
+
+/* Nathan */
+
 div.chip_ac {
   flex: 1;
   border-radius: 10pt;
   background-color: #172859;
   padding: 15pt;
   margin: 20pt;
- 
-  
 }
 
 p.info {

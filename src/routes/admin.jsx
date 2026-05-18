@@ -1,5 +1,3 @@
-
-
 export default function Admin() {
     return (
         <main>
@@ -12,8 +10,8 @@ export default function Admin() {
                 </div>
                 <div class="chip">
                     <p>Nombre de véhicules</p>
-                    <p class="data">25</p>
-                    Total places : 42
+                    <p class="data">2</p>
+                    Total places : 30
                 </div>
                 <div class="chip">
                     <p>Entrées aujourd'hui</p>
@@ -35,8 +33,8 @@ export default function Admin() {
                     <p class="ligne firstline" title="id_utilisateur">ID de l'utilisateur</p>
                 </div>
                 <hr />
-                <For each={[{ "id": 1, "immatriculation": "AB-123-CD", "heure_arrivee": "2026/05/17 18:20:18", "numero_place": 40, "id_utilisateur": 127 },
-                { "id": 2, "immatriculation": "EF-123-GH", "heure_arrivee": "2026/05/17 22:00:15", "numero_place": 2, "id_utilisateur": 57 }
+                <For each={[{ "id": 1, "immatriculation": "AB-123-CD", "heure_arrivee": "2026/05/17 18:20:18", "numero_place": 16, "id_utilisateur": 127 },
+                { "id": 2, "immatriculation": "EF-123-GH", "heure_arrivee": "2026/05/17 22:00:15", "numero_place": 30, "id_utilisateur": 57 }
                 ]}>
                     {(voiture) =>
                         <div class="voiture_ligne">
