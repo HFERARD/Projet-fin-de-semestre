@@ -1,5 +1,21 @@
-# SolidStart
+# Projet de fin de semestre
 
+## Principe du projet 
+
+L'objectif est de réaliser une platerforme de gestion de parking [à compléter].
+
+
+## Backend 
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
 Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
 
 ## Creating a project
