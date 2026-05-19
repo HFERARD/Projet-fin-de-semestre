@@ -5,7 +5,7 @@ Page génération de la bdd
 
 Hector F
 
-Utilisation IA pour la syntaxe puis écritude à la main
+Utilisation IA pour la compréhension de lasyntaxe puis écriture à la main
 */
 
 import { Database } from "bun:sqlite";
@@ -39,7 +39,8 @@ db2.run(`
   id INTEGER PRIMARY KEY,
   is_occupied BOOLEAN NOT NULL,
   car_id INTEGER, -- optional
-  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  immat TEXT -- optional
   )
 `);
 
