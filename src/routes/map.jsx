@@ -1,45 +1,72 @@
-import { A } from "@solidjs/router";
+import { createSignal, Show } from "solid-js";
 import { Accessibility, Plug, SquareParking } from "lucide-solid"
 
 export default function Map() {
-  var free = [true, true, true, true, true,true, true, true, true, true,
-    true, true, true, true, true, false, true, true, true, true,
-    true, true, true, true, true, true, true, true, true, false]
+  const places = [
+    { id: "01", free: true, type: "normal" },
+    { id: "02", free: true, type: "normal" },
+    { id: "03", free: true, type: "normal" },
+    { id: "04", free: true, type: "normal" },
+    { id: "05", free: true, type: "normal" },
+    { id: "06", free: true, type: "normal" },
+    { id: "07", free: true, type: "normal" },
+    { id: "08", free: true, type: "normal" },
+    { id: "09", free: true, type: "normal" },
+    { id: "10", free: true, type: "normal" },
+    { id: "11", free: true, type: "normal" },
+    { id: "12", free: true, type: "elec" },
+    { id: "13", free: true, type: "elec" },
+    { id: "14", free: true, type: "elec" },
+    { id: "15", free: true, type: "elec" },
+    { id: "16", free: false, type: "elec", car:"AB-123-CD", client: "127"},
+    { id: "17", free: true, type: "normal" },
+    { id: "18", free: true, type: "normal" },
+    { id: "19", free: true, type: "normal" },
+    { id: "20", free: true, type: "normal" },
+    { id: "21", free: true, type: "normal" },
+    { id: "22", free: true, type: "normal" },
+    { id: "23", free: true, type: "normal" },
+    { id: "24", free: true, type: "normal" },
+    { id: "25", free: true, type: "normal" },
+    { id: "26", free: true, type: "normal" },
+    { id: "27", free: true, type: "pmr" },
+    { id: "28", free: true, type: "pmr" },
+    { id: "29", free: true, type: "pmr" },
+    { id: "30", free: false, type: "pmr", car:"EF-123-GH", client: "57" },
+  ];
+  // Pour changer d'icône :
+  const getIcon = (type) => {
+  switch (type) {
+    case "elec":
+      return <Plug size={20} />;
+
+    case "pmr":
+      return <Accessibility size={20} />;
+
+    default:
+      return <SquareParking size={20} />;
+  }
+};
+  const [selectedPlace, setSelectedPlace] = createSignal();
   return (
     <main>
       <h1>Carte du parking</h1>
       <p>Vue en direct des places de parking</p>
       <div id="map">
-        <div class={`space normal ${free[0] ? "free" : "occupied"}`}><SquareParking size={20}/><br/>01</div>
-        <div class={`space normal ${free[1] ? "free" : "occupied"}`}><SquareParking size={20}/>02</div>
-        <div class={`space normal ${free[2] ? "free" : "occupied"}`}><SquareParking size={20}/>03</div>
-        <div class={`space normal ${free[3] ? "free" : "occupied"}`}><SquareParking size={20}/>04</div>
-        <div class={`space normal ${free[4] ? "free" : "occupied"}`}><SquareParking size={20}/>05</div>
-        <div class={`space normal ${free[5] ? "free" : "occupied"}`}><SquareParking size={20}/>06</div>
-        <div class={`space normal ${free[6] ? "free" : "occupied"}`}><SquareParking size={20}/>07</div>
-        <div class={`space normal ${free[7] ? "free" : "occupied"}`}><SquareParking size={20}/>08</div>
-        <div class={`space normal ${free[8] ? "free" : "occupied"}`}><SquareParking size={20}/>09</div>
-        <div class={`space normal ${free[9] ? "free" : "occupied"}`}><SquareParking size={20}/>10</div>
-        <div class={`space normal ${free[10] ? "free" : "occupied"}`}><SquareParking size={20}/>11</div>
-        <div class={`space normal ${free[11] ? "free" : "occupied"}`}><SquareParking size={20}/>12</div>
-        <div class={`space elec ${free[12] ? "free" : "occupied"}`}><Plug size={20}/>13</div>
-        <div class={`space elec ${free[13] ? "free" : "occupied"}`}><Plug size={20}/>14</div>
-        <div class={`space elec ${free[14] ? "free" : "occupied"}`}><Plug size={20}/>15</div>
-        <div class={`space elec ${free[15] ? "free" : "occupied"}`}><Plug size={20}/>16</div>
-        <div class={`space elec ${free[16] ? "free" : "occupied"}`}><Plug size={20}/>17</div>
-        <div class={`space normal ${free[17] ? "free" : "occupied"}`}><SquareParking size={20}/>18</div>
-        <div class={`space normal ${free[18] ? "free" : "occupied"}`}><SquareParking size={20}/>19</div>
-        <div class={`space normal ${free[19] ? "free" : "occupied"}`}><SquareParking size={20}/>20</div>
-        <div class={`space normal ${free[20] ? "free" : "occupied"}`}><SquareParking size={20}/>21</div>
-        <div class={`space normal ${free[21] ? "free" : "occupied"}`}><SquareParking size={20}/>22</div>
-        <div class={`space normal ${free[22] ? "free" : "occupied"}`}><SquareParking size={20}/>23</div>
-        <div class={`space normal ${free[23] ? "free" : "occupied"}`}><SquareParking size={20}/>24</div>
-        <div class={`space normal ${free[24] ? "free" : "occupied"}`}><SquareParking size={20}/>25</div>
-        <div class={`space normal ${free[25] ? "free" : "occupied"}`}><SquareParking size={20}/>26</div>
-        <div class={`space pmr ${free[26] ? "free" : "occupied"}`}><Accessibility size={20}/>27</div>
-        <div class={`space pmr ${free[27] ? "free" : "occupied"}`}><Accessibility size={20}/>28</div>
-        <div class={`space pmr ${free[28] ? "free" : "occupied"}`}><Accessibility size={20}/>29</div>
-        <div class={`space pmr ${free[29] ? "free" : "occupied"}`}><Accessibility size={20}/>30</div>
+        {places.map((place) => (<div class={`space ${place.type} ${place.free ? "free" : "occupied"}`} onClick={() => {if (!place.free) {setSelectedPlace(place)}}}>{getIcon(place.type)}<br/>{place.id}</div>))}
+      {/* Popup */}
+      <Show when={selectedPlace()}>
+        <div class="popup-overlay">
+          <div class="popup">
+            <h2 class="font-mono">Place {selectedPlace()?.id}</h2>
+            <div class="popup_line"><p>Voiture </p><p class="font-mono text-white">{selectedPlace()?.car}</p></div>
+            <div class="popup_line"><p>N° client </p><p class="font-mono text-white">{selectedPlace()?.client}</p></div>
+            <button onClick={() => setSelectedPlace(null)}>
+              Fermer
+            </button>
+          </div>
+        </div>
+      </Show>
       </div>
       <h2>Total places libres : 28</h2>
       <div class="legend green"><SquareParking size={25}/>21 places normales</div>
