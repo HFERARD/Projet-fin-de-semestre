@@ -1,17 +1,27 @@
+import { CircleOff, UserRoundCheck } from "lucide-solid";
 import { For } from "solid-js";
 
 export default function Home() {
+    const getIcon = (type) => {
+    switch (type) {
+      case "Avec abonnement":
+        return <UserRoundCheck size={20} color="#01c9d5" stroke-width={3}/>;
+  
+      case "Sans abonnement":
+        return <CircleOff size={20} color="#8b96a1" stroke-width={2}/>;
+    }}
+  
   return (
     <main>
       <h1>Bienvenue sur le site du Parking des Mines</h1>
       <p>Veuillez vous identifier ou créer votre compte client.</p>
       <div id="basicdata">
         <div class="chip_ac">
-          <p class="info">Notre politique tarifaire :</p>
+          <h2>Notre politique tarifaire</h2>
           <div id="liste_tarifs">
             <div class="voiture_ligne">
               <p class="ligne firstline firstcol" title="Durée">Durée</p>
-              <p class="ligne firstline" title="Contrat">Contrat</p>
+              <p class="ligne firstline" title="Contrat">Abonnement</p>
               <p class="ligne firstline" title="Tarif_N">Tarif normal</p>
               <p class="ligne firstline" title="Tarif_VE">Tarif véhicules électriques</p>
               <p class="ligne firstline" title="Tarif_Riv">Tarif riverains</p>
@@ -20,7 +30,7 @@ export default function Home() {
             <For each={[
               {
                 "id": 1,
-                "Durée": "15 min",
+                "Durée": "15 minutes",
                 "Contrat": "Sans abonnement",
                 "Tarif_N": "0.80 €",
                 "Tarif_VE": "0.60 €",
@@ -28,7 +38,7 @@ export default function Home() {
               },
               {
                 "id": 2,
-                "Durée": "1h",
+                "Durée": "1 heure",
                 "Contrat": "Sans abonnement",
                 "Tarif_N": "3.20 €",
                 "Tarif_VE": "2.40 €",
@@ -36,7 +46,7 @@ export default function Home() {
               },
               {
                 "id": 3,
-                "Durée": "3h",
+                "Durée": "3 heures",
                 "Contrat": "Sans abonnement",
                 "Tarif_N": "9.00 €",
                 "Tarif_VE": "6.80 €",
@@ -44,7 +54,7 @@ export default function Home() {
               },
               {
                 "id": 4,
-                "Durée": "1j",
+                "Durée": "1 jour",
                 "Contrat": "Sans abonnement",
                 "Tarif_N": "12.50 €",
                 "Tarif_VE": "9.00 €",
@@ -52,7 +62,7 @@ export default function Home() {
               },
               {
                 "id": 5,
-                "Durée": "1j",
+                "Durée": "1 jour",
                 "Contrat": "Avec abonnement",
                 "Tarif_N": "9.00 €",
                 "Tarif_VE": "6.80 €",
@@ -116,12 +126,12 @@ export default function Home() {
               }
             ]}>
               {(tarif) =>
-                <div class="voiture_ligne">
-                  <p class="ligne firstcol">{tarif["Durée"]}</p>
-                  <p class="ligne">{tarif["Contrat"]}</p>
-                  <p class="ligne">{tarif["Tarif_N"]}</p>
-                  <p class="ligne">{tarif["Tarif_VE"]}</p>
-                  <p class="ligne">{tarif["Tarif_Riv"]}</p>
+                <div class="voiture_ligne pt-3">
+                  <p class="flex-1">{tarif["Durée"]}</p>
+                  <p class="flex-1">{getIcon(tarif["Contrat"])}</p>
+                  <p class="flex-1 text-white">{tarif["Tarif_N"]}</p>
+                  <p class="flex-1 text-white">{tarif["Tarif_VE"]}</p>
+                  <p class="flex-1 text-white">{tarif["Tarif_Riv"]}</p>
                 </div>}
             </For>
           </div>
@@ -151,7 +161,7 @@ export default function Home() {
 
             </div>
             <div class="encad_btn">
-              <button class="btn_ac"> créer un compte </button>
+              <button class="btn_ac">Créer un compte</button>
             </div>
           </div>
         </div>
