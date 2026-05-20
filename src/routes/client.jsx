@@ -1,4 +1,4 @@
-
+import { For } from "solid-js";
 
 export default function Client() {
     return (
