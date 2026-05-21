@@ -130,7 +130,6 @@ export default function Home() {
         <div>
 
           <div class="chip_ac">
-            <form onSubmit = {connexion}>
               <p class="info">Déjà client :</p>
               <div class="formulaire">
                 <label style="color:black" for="identifiant">Id. : </label>
@@ -141,7 +140,6 @@ export default function Home() {
                 <label style="color:black" for="Mot de passe">MdP : </label>
                 <input type="password" id="Mdp" name="Mot de passe" placeholder="à saisir"></input>
               </div>
-            </form>
             <div class="encad_btn">
               <button class="btn_ac"> Se connecter </button>
             </div>
