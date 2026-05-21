@@ -13,70 +13,75 @@ Fichier de gestion backend des données du parking
 
  Hector F 
 
- - IA utilisée pour la compréhension des server-functions + gestion bdd
+ - IA utilisée pour la compréhension de l'API à plus haut niveau + gestion bdd
  - Code écrit à la main 
 */
 
 const dbPath = resolve("src/server/parking.db");
 const spaces = new Database(dbPath);
 
-
-// Fonctions pour récupérer les données sur les voitures en place
-
+// Fonctions pour récupérer les données en backend (d'où le "use server")
 
 export const getCars = async () => {
-    "use server";
-    const space = spaces.query("SELECT * FROM spaces").all();
-    console.log(space)
-    const cars = spaces.query("SELECT * FROM spaces WHERE is_occupied = 1").all();
+    // Récupérer toutes les voitures présentes dans le parking
+    const cars = spaces.query("SELECT * FROM cars").all();
     console.log(cars)
     return cars;
 };
 
 
-/*
-Structure de la table users  
-    id INTEGER PRIMARY KEY,
-    is_occupied BOOLEAN NOT NULL,
-    car_id INTEGER, -- optional
-    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-    immat TEXT --optional
-*/
-
-export const addCar = async (car_id, immat, id) => {
-    console.log("Babababa")
-    try {
-        spaces.query(`UPDATE spaces
-                    SET is_occupied = 1,
-                        car_id = ?,
-                        updated_at = CURRENT_TIMESTAMP,
-                        immat = ?
-                    WHERE id = ?`).run(car_id, immat, id);
-        console.log(`Car added: ${car_id}, ${immat} to space ${id}`);
-    } catch (e) {
-        console.error("Error in addCar:", e);
+export const addCar = async (immat, space_id) => {
+    // Ajouter une voiture à une place de parking spécifique 
+    const occupied = spaces.query("SELECT is_occupied FROM spaces WHERE space_id = ?").get(space_id).is_occupied;
+    if (occupied) {
+        console.log(`La place ${space_id} est déjà prise. Ajout impossible pour l'immatriculation: ${immat}.`);
+        return;
+    } else {
+        console.log(`Ajout de l'immatriculation: ${immat} ) la place ${space_id}`);
+        spaces.query(`INSERT INTO cars (immat, space_id) VALUES (?, ?)`).run(immat, space_id);
+        spaces.query(`UPDATE spaces SET is_occupied = true, updated_at = CURRENT_TIMESTAMP WHERE space_id = ?`).run(space_id);
+        console.log(`Voiture ajoutée: ${immat} à la place ${space_id}`);
     };
 };
 
 
-export const emptySpace = async (id) => {
+export const addCarBis = async () => {
+    // TEST : ajout d'une voiture en force (duplicates autorisées)
+    await addCar("AA-111-BB", 1);
+};
 
-    spaces.query(`UPDATE spaces
-                    SET is_occupied = 0,
-                        car_id = NULL,
-                        updated_at = CURRENT_TIMESTAMP,
-                        immat = NULL
-                    WHERE id = ?`).run(id);
+export const removeCar = async (car_id) => {
+    // Enlever une voiture du parking
+    console.log(`On vide la place associée à l'identifiant voiture: ${car_id}`);
+    spaces.query(`DELETE FROM cars WHERE car_id = ?`).run(car_id);
+    spaces.query(`UPDATE spaces SET is_occupied = false, updated_at = CURRENT_TIMESTAMP WHERE space_id = (SELECT space_id FROM cars WHERE car_id = ?)`).run(car_id);
 };
 
 // Fonctions pour modifier l'état même du parking 
 
 export const addSpace = async () => {
-    spaces.query("INSERT INTO spaces (is_occupied, car_id, immat) VALUES (0, NULL, NULL)").run();
+    // Ajout d'un espace libre
+    spaces.query(`INSERT INTO spaces (is_occupied) VALUES (false)`).run();
 };
 
 
-export const removeSpace = async (id) => {
-    spaces.query("DELETE FROM spaces WHERE id = ?").run(id);
+export const removeSpace = async () => {
+    // Suppression d'une place vide (on suppose la place vide pour le moment)
+    spaces.query(`DELETE FROM spaces 
+        WHERE space_id = (
+        SELECT MAX(space_id) FROM spaces WHERE is_occupied = 0
+    );`).run();
+};
+
+export const getNumberOfSpaces = async () => {
+    // Récupérer le nombre total de places de parking
+    const result = spaces.query("SELECT COUNT(*) AS count FROM spaces").get();
+    return result.count;
+};
+
+export const getNumberOfOccupiedSpaces = async () => {
+    // Récupérer le nombre de places occupées
+    const result = spaces.query("SELECT COUNT(*) AS count FROM spaces WHERE is_occupied = true").get();
+    return result.count;
 };
 
