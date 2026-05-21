@@ -7,11 +7,6 @@ L'objectif est de réaliser une platerforme de gestion de parking [à compléter
 
 ## Backend 
 
-
-
-
-
-
 <br>
 <br>
 <br>
