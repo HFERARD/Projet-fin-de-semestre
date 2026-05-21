@@ -43,6 +43,9 @@ Le dossier routes/clients/[id].jsx donne l'idée de créer une "dynamic route" u
     - getCurrentReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules et dont heure_fin n'est pas encore passée\
 Il manque bien sûr un système de sécurité (s'appuyant par exemple sur des cookies de session qui redirigerait sur la page /index si le client n'est pas habilité à visiter la page donnée (s'il n'est pas au préalable passé par le formulaire de connexion de la page /index))
 
+#### Interface administrateur
+Le fichier admin.jsx contient une idée de la logique d'une interface administrateur dynamique. Elle s'appuie essentiellement sur les api et bases de données définies dans le dossier server. Elle utilise notamment la fonction addCar qui ne fonctionne pas. On ne peut donc pas afficher cette page.
+
 ### Backend
 
 Sur le backend, nous avons eu quelques soucis, notamment sur la fonction ```addCar``` du fichier ```parking_spaces.js``` qui ne parvient pas à communiquer avec le client ```admin.jsx``` malgré beaucoup de tests. Nous avons utilisés notamment l'IA pour vérifier la cohérence de ces programmes, et aucune n'a pu nous explilquer cette absence de communication entre les deux côtés. 
