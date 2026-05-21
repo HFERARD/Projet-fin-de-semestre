@@ -175,42 +175,10 @@ export default function Home() {
               <button class="btn_ac"> créer un compte </button>
             </div>
           </div>
-          <Show when = {isFormOpen()}>
-            <form onSbmit = {creerCompte}>*
-              //Dans l'idéal, remplacer ça par un forEach
-              <div class="formulaire">
-                <label style="color:black" for="identifiant">Prénom : </label>
-                <input type="text" id="name" name="name" placeholder="à saisir" onInput={(e) => setFormData({...formData, ["name"] : e.target.value})}></input>
-              </div>
-
-              <div class="formulaire">
-                <label style="color:black" for="identifiant">Nom : </label>
-                <input type="text" id="surname" name="surname" placeholder="à saisir" onInput={(e) => setFormData({...formData, ["surname"] : e.target.value})}></input>
-              </div>
-
-              <div class="formulaire">
-                <label style="color:black" for="identifiant">Date de naissance : </label>
-                <input type="text" id="date_of_birth" name="date_of_birth" placeholder="à saisir" onInput={(e) => setFormData({...formData, ["date_of_birth"] : e.target.value})}></input>
-              </div>
-
-              <div class="formulaire">
-                <label style="color:black" for="identifiant">Mel. : </label>
-                <input type="text" id="email" name="email" placeholder="à saisir" onInput={(e) => setFormData({...formData, ["email"] : e.target.value})}></input>
-              </div> //ce serait stylé de vérifier que l'on entre un email valide
-
-              <div class="formulaire">
-                <label style="color:black" for="Mot de passe">MdP : </label>
-                <input type="password" id="password" name="Mot de passe" placeholder="à saisir" onInput={(e) => setFormData({...formData, ["password"] : e.target.value})}></input>
-              </div>
-
-              //Ce serait stylé de demander de confirmer le mot de passe
-              
-            </form>
-          </Show>
+         
         </div>
 
       </div>
     </main>
   );
 }
-
