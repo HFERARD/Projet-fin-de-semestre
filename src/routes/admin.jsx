@@ -28,7 +28,7 @@ export default function Admin() {
         const data = new FormData(element.target);
         removeCar(data.get("space_id"));
 
-        await revalidate("fetchCars");
+        await revalidate();
         // Mettre à jour la table affichée
 
         element.target.reset();
