@@ -40,7 +40,8 @@ Le dossier routes/clients/[id].jsx donne l'idée de créer une "dynamic route" u
   ainsi que du fichier server/users/users.js implémentant à l'aide de SQL les server functions :
    - getClient qui prend en argument un entier id et renvoie, si elle existe, l'unique ligne de clients.db dont l'id vaut id, sous forme d'objet
     - getReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules
-    - getCurrentReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules et dont heure_fin n'est pas encore passée
+    - getCurrentReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules et dont heure_fin n'est pas encore passée\
+Il manque bien sûr un système de sécurité (s'appuyant par exemple sur des cookies de session qui redirigerait sur la page /index si le client n'est pas habilité à visiter la page donnée (s'il n'est pas au préalable passé par le formulaire de connexion de la page /index))
 
 ### Backend
 
