@@ -2,40 +2,31 @@
 ****************************************
 Page génération de la bdd
 ****************************************
-
-Hector F
-
-Utilisation IA pour la compréhension de lasyntaxe puis écriture à la main
 */
 
 import { Database } from "bun:sqlite";
 
 
-// BDD pour toutes les voitures utilisateurs
+// BDD globale pour tout le projet
 
 const db = new Database("./src/server/parking.db");
 
-// Create table
+
+// Table des places de parking 
 db.run(`
-  CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    surname TEXT,
-    date_of_birth TEXT,
-    email TEXT,
-    password TEXT,
-    date_joined TEXT DEFAULT CURRENT_TIMESTAMP
+  CREATE TABLE IF NOT EXISTS spaces (
+  space_id INTEGER PRIMARY KEY,
+  is_occupied BOOLEAN NOT NULL,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
   )
 `);
 
-// Create table
-db.run(`
-  CREATE TABLE IF NOT EXISTS spaces (
-  id INTEGER PRIMARY KEY,
-  is_occupied BOOLEAN NOT NULL,
-  car_id INTEGER, -- optional
-  updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
-  immat TEXT -- optional
+
+// Table des voitures présentes dans le parking
+db.run(`CREATE TABLE IF NOT EXISTS cars (
+  car_id INTEGER PRIMARY KEY,
+  immat TEXT NOT NULL,
+  space_id INTEGER
   )
 `);
 

@@ -1,4 +1,5 @@
-import { A } from "@solidjs/router";
+import { For } from "solid-js";
+
 
 export default function Home() {
   return (
@@ -18,103 +19,103 @@ export default function Home() {
             </div>
             <hr />
             <For each={[
-                        {
-                          "id": 1,
-                          "Durée": "15 min",
-                          "Contrat": "Sans abonnement",
-                          "Tarif_N": "0.80 €",
-                          "Tarif_VE": "0.60 €",
-                          "Tarif_Riv": "0.40 €"
-                        },
-                        {
-                          "id": 2,
-                          "Durée": "1h",
-                          "Contrat": "Sans abonnement",
-                          "Tarif_N": "3.20 €",
-                          "Tarif_VE": "2.40 €",
-                          "Tarif_Riv": "1.60 €"
-                        },
-                        {
-                          "id": 3,
-                          "Durée": "3h",
-                          "Contrat": "Sans abonnement",
-                          "Tarif_N": "9.00 €",
-                          "Tarif_VE": "6.80 €",
-                          "Tarif_Riv": "4.50 €"
-                        },
-                        {
-                          "id": 4,
-                          "Durée": "1j",
-                          "Contrat": "Sans abonnement",
-                          "Tarif_N": "12.50 €",
-                          "Tarif_VE": "9.00 €",
-                          "Tarif_Riv": "6.20 €"
-                        },
-                        {
-                          "id": 5,
-                          "Durée": "1j",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "9.00 €",
-                          "Tarif_VE": "6.80 €",
-                          "Tarif_Riv": "4.50 €"
-                        },
-                        {
-                          "id": 6,
-                          "Durée": "1 semaine",
-                          "Contrat": "Sans abonnement",
-                          "Tarif_N": "60.00 €",
-                          "Tarif_VE": "45.00 €",
-                          "Tarif_Riv": "30.00 €"
-                        },
-                        {
-                          "id": 7,
-                          "Durée": "1 semaine",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "42.00 €",
-                          "Tarif_VE": "32.00 €",
-                          "Tarif_Riv": "21.00 €"
-                        },
-                        {
-                          "id": 8,
-                          "Durée": "2 semaines",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "75.00 €",
-                          "Tarif_VE": "56.00 €",
-                          "Tarif_Riv": "38.00 €"
-                        },
-                        {
-                          "id": 9,
-                          "Durée": "1 mois",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "110.00 €",
-                          "Tarif_VE": "82.00 €",
-                          "Tarif_Riv": "55.00 €"
-                        },
-                        {
-                          "id": 10,
-                          "Durée": "3 mois",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "300.00 €",
-                          "Tarif_VE": "225.00 €",
-                          "Tarif_Riv": "150.00 €"
-                        },
-                        {
-                          "id": 11,
-                          "Durée": "6 mois",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "550.00 €",
-                          "Tarif_VE": "412.00 €",
-                          "Tarif_Riv": "275.00 €"
-                        },
-                        {
-                          "id": 12,
-                          "Durée": "1 an",
-                          "Contrat": "Avec abonnement",
-                          "Tarif_N": "1000.00 €",
-                          "Tarif_VE": "750.00 €",
-                          "Tarif_Riv": "500.00 €"
-                        }
-                      ]}>
+              {
+                "id": 1,
+                "Durée": "15 min",
+                "Contrat": "Sans abonnement",
+                "Tarif_N": "0.80 €",
+                "Tarif_VE": "0.60 €",
+                "Tarif_Riv": "0.40 €"
+              },
+              {
+                "id": 2,
+                "Durée": "1h",
+                "Contrat": "Sans abonnement",
+                "Tarif_N": "3.20 €",
+                "Tarif_VE": "2.40 €",
+                "Tarif_Riv": "1.60 €"
+              },
+              {
+                "id": 3,
+                "Durée": "3h",
+                "Contrat": "Sans abonnement",
+                "Tarif_N": "9.00 €",
+                "Tarif_VE": "6.80 €",
+                "Tarif_Riv": "4.50 €"
+              },
+              {
+                "id": 4,
+                "Durée": "1j",
+                "Contrat": "Sans abonnement",
+                "Tarif_N": "12.50 €",
+                "Tarif_VE": "9.00 €",
+                "Tarif_Riv": "6.20 €"
+              },
+              {
+                "id": 5,
+                "Durée": "1j",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "9.00 €",
+                "Tarif_VE": "6.80 €",
+                "Tarif_Riv": "4.50 €"
+              },
+              {
+                "id": 6,
+                "Durée": "1 semaine",
+                "Contrat": "Sans abonnement",
+                "Tarif_N": "60.00 €",
+                "Tarif_VE": "45.00 €",
+                "Tarif_Riv": "30.00 €"
+              },
+              {
+                "id": 7,
+                "Durée": "1 semaine",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "42.00 €",
+                "Tarif_VE": "32.00 €",
+                "Tarif_Riv": "21.00 €"
+              },
+              {
+                "id": 8,
+                "Durée": "2 semaines",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "75.00 €",
+                "Tarif_VE": "56.00 €",
+                "Tarif_Riv": "38.00 €"
+              },
+              {
+                "id": 9,
+                "Durée": "1 mois",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "110.00 €",
+                "Tarif_VE": "82.00 €",
+                "Tarif_Riv": "55.00 €"
+              },
+              {
+                "id": 10,
+                "Durée": "3 mois",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "300.00 €",
+                "Tarif_VE": "225.00 €",
+                "Tarif_Riv": "150.00 €"
+              },
+              {
+                "id": 11,
+                "Durée": "6 mois",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "550.00 €",
+                "Tarif_VE": "412.00 €",
+                "Tarif_Riv": "275.00 €"
+              },
+              {
+                "id": 12,
+                "Durée": "1 an",
+                "Contrat": "Avec abonnement",
+                "Tarif_N": "1000.00 €",
+                "Tarif_VE": "750.00 €",
+                "Tarif_Riv": "500.00 €"
+              }
+            ]}>
               {(tarif) =>
                 <div class="voiture_ligne">
                   <p class="ligne firstcol">{tarif["Durée"]}</p>
