@@ -12,6 +12,35 @@ L'objectif est de réaliser une platerforme de gestion de parking.
 Le Frontend a été réalisé en premier, avec 4 pages différentes : accueil, vue client, vue admin et carte du parking. Le tout est codé en solid-js tailwindCSS. 
 
 L'IA n'a été utilisée que pour valider et corriger du code existant. 
+#### Interface client
+La page routes/client.jsx donne un aperçu statique de ce que pourrait être le rendu de l'interface client. Cette page n'xisterait pas dans l'architecture réelle du site s'il devait être déployé.\
+Le dossier routes/clients/[id].jsx donne l'idée de créer une "dynamic route" utilisant le paramètre id pour fournir une interface client personnalisée. Le fichier [id].jsx ne fonctionne pas. Il suppose l'existence de : 
+ - une base de données clients.db avec les champs suivants : 
+ (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,\
+    email TEXT\
+    password TEXT\
+    vehicules ARRAY\
+
+  )
+   - une bdd vehicules.db avec les champs suivants : 
+  (
+    vehicule TEXT\
+    immatriculation TEXT\
+  )
+   - une base de données reservations.db avec (au moins) les champs suivants :
+   (
+    vehicule TEXT\
+    immatriculation TEXT\
+    heure_arrivee TEXT\
+    heure_fin TEXT\
+    numero_place TEXT\
+    cout_actuel TEXT\
+  )\
+  ainsi que du fichier server/users/users.js implémentant à l'aide de SQL les server functions :
+   - getClient qui prend en argument un entier id et renvoie, si elle existe, l'unique ligne de clients.db dont l'id vaut id, sous forme d'objet
+    - getReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules
+    - getCurrentReservations qui prend en argument un entier id et renvoie la liste des lignes de reservations.db correspondant à des vehicules figurant dans getClient(id).vehicules et dont heure_fin n'est pas encore passée
 
 ### Backend
 
@@ -22,6 +51,7 @@ Plus généralement, la technologie employée repose sur le framework haut-nivea
 Nous souhaiterions reprendre le travail sur le backend, qui reste très incomplet, suite à une grosse perte de temps sur le debug du ```addCar``` le plus rapidement possible, afin de rendre le site réellement fonctionnel, notamment avec l'implémentation backend de la vue ```map``` et la création dans un dernier temps d'une plateforme login pour les clients et admins. 
 
 L'IA a été utilisée pour valider le code existant et prendre en main les nouveaux outils. Cependant, le code réel a été écrit à la main. 
+
 
 
 
