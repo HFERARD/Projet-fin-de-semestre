@@ -2,42 +2,35 @@
 
 ## Principe du projet 
 
-L'objectif est de réaliser une platerforme de gestion de parking [à compléter].
+L'objectif est de réaliser une platerforme de gestion de parking. 
+
+**Objectif** : Pemrettre aux clients de s'enregistrer ou s'abonner au parking, et à l'administrateur de gérer les places, d'ajouter ou de supprimer des clients, et finalement d'avoir un aperçu financier de son parking. 
 
 
-## Backend 
+### Frontend 
 
-<br>
-<br>
-<br>
-<br>
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+Le Frontend a été réalisé en premier, avec 4 pages différentes : accueil, vue client, vue admin et carte du parking. Le tout est codé en solid-js tailwindCSS. 
 
-## Creating a project
+L'IA n'a été utilisée que pour valider et corriger du code existant. 
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
+### Backend
 
-# create a new project in my-app
-npm init solid@latest my-app
-```
+Sur le backend, nous avons eu quelques soucis, notamment sur la fonction ```addCar``` du fichier ```parking_spaces.js``` qui ne parvient pas à communiquer avec le client ```admin.jsx``` malgré beaucoup de tests. Nous avons utilisés notamment l'IA pour vérifier la cohérence de ces programmes, et aucune n'a pu nous explilquer cette absence de communication entre les deux côtés. 
 
-## Developing
+Plus généralement, la technologie employée repose sur le framework haut-niveau de ```SolidStart```. Les fonctions API ne sont pas codées explicitement mais plutôt transmises au client via le système de ```query```. 
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Nous souhaiterions reprendre le travail sur le backend, qui reste très incomplet, suite à une grosse perte de temps sur le debug du ```addCar``` le plus rapidement possible, afin de rendre le site réellement fonctionnel, notamment avec l'implémentation backend de la vue ```map``` et la création dans un dernier temps d'une plateforme login pour les clients et admins. 
 
-```bash
-npm run dev
+L'IA a été utilisée pour valider le code existant et prendre en main les nouveaux outils. Cependant, le code réel a été écrit à la main. 
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
-## Building
 
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
+## Installation 
 
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
+Installation des dépendances 
 
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+> ```bun install```
+
+Test avec serveur de développement 
+
+> ```bun dev```
