@@ -13,29 +13,24 @@ import { Database } from "bun:sqlite";
 
 // BDD pour toutes les voitures utilisateurs
 
-const db = new Database("./src/routes/features/users/cars.db");
+const db = new Database("./src/server/parking.db");
 
 // Create table
 db.run(`
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT
-    surname TEXT
-    date_of_birth TEXT
-    email TEXT
-    password TEXT
-    date_joined TEXT
+    name TEXT,
+    surname TEXT,
+    date_of_birth TEXT,
+    email TEXT,
+    password TEXT,
+    date_joined TEXT DEFAULT CURRENT_TIMESTAMP
   )
 `);
 
-
-// BDD pour toutes les voitures dans le parking 
-
-const db2 = new Database("./src/routes/features/spaces/parking.db");
-
 // Create table
-db2.run(`
-  CREATE TABLE IF NOT EXISTS users (
+db.run(`
+  CREATE TABLE IF NOT EXISTS spaces (
   id INTEGER PRIMARY KEY,
   is_occupied BOOLEAN NOT NULL,
   car_id INTEGER, -- optional

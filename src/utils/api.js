@@ -1,3 +1,4 @@
+/*
 import { Database } from "bun:sqlite";
 import { Hono } from "hono"
 
@@ -38,3 +39,4 @@ app.post("/signin", async (c) => {//route à créer (quand on clique sur"créer 
     return c.json({response : `coucou ${n}`, user : {n,s,dob,e,p,dj}})})
 
 export default app
+*/
